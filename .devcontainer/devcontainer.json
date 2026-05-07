@@ -4,6 +4,10 @@
         "dockerfile": "Dockerfile"
     },
     "remoteUser": "vscode",
+    "runArgs": [
+        "--env-file",
+        "${localWorkspaceFolder}/.env"
+    ],
     "mounts": [
         "type=bind,source=${localWorkspaceFolder}/../Lazyfit,target=/workspaces/Lazyfit,readonly"
     ],
