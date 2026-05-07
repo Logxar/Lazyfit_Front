@@ -4,13 +4,20 @@
         "dockerfile": "Dockerfile"
     },
     "remoteUser": "vscode",
+    "runArgs": [
+        "--env-file",
+        "${localWorkspaceFolder}/.env"
+    ],
     "mounts": [
-        "type=bind,source=${localWorkspaceFolder}/../../Lazyfit,target=/workspaces/Lazyfit,readonly"
+        "type=bind,source=${localWorkspaceFolder}/../Lazyfit,target=/workspaces/Lazyfit,readonly"
     ],
     "workspaceFolder": "/workspaces/Lazyfit_Front",
     "forwardPorts": [3000, 8080],
     "customizations": {
         "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            },
             "extensions": [
                 "Dart-Code.dart-code",
                 "Dart-Code.flutter",

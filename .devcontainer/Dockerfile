@@ -10,18 +10,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
     git \
+    zsh \
     gnupg \
     jq \
     openssh-client \
     unzip \
     xz-utils \
     zip \
-    libglu1-mesa \
-    libgtk-3-0 \
-    libnss3 \
-    libxss1 \
-    libasound2 \
-    libstdc++6 \
   && rm -rf /var/lib/apt/lists/*
 
 # Node.js (for Flutter web + optional JS tooling)
@@ -34,6 +29,8 @@ RUN useradd -m vscode -s /bin/bash
 
 USER vscode
 WORKDIR /home/vscode
+
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Flutter SDK
 RUN git clone --depth 1 --branch "${FLUTTER_VERSION}" https://github.com/flutter/flutter.git /home/vscode/flutter
